@@ -19,6 +19,75 @@
             <button class="btn btn-primary"><i class="fa-solid fa-magnifying-glass"></i> New Issue</button>
         </div>
     </header>
-    <section id="allbtnsection"></section>
+    <section id="allbtnsection " class="">
+        <div id="btnContiner" class=" max-w-7xl flex container gap-3 mx-auto mt-8 bg-white shadow-xl p-8 rounded-lg">
+            <button id="allbtn" onclick="allbtnDisply()" class="btn btn-active btn-primary">All</button>
+            <button id="openbtn" onclick="openbtndisply()" class="btn btn-outline btn-primary">Open</button>
+            <button id="closebtn" onclick="closeDisply()" class="btn btn-outline btn-primary">Closed</button>
+        </div>
+        <div class="flex max-w-7xl flex container gap-3 mx-auto mt-8 bg-white shadow-xl p-8 rounded-lg">
+            <div class="flex gap-4 items-center">
+              <div class="bg-blue-200 p-2 rounded-full">  <img src="assets/Aperture.png" alt=""></div>
+                <div>
+                    <h2 class="text-2xl font-bold"><span id="porbCount">50</span> Issues</h2>
+                    <p>Track and manage your project issues</p>
+                </div>
+                
+            </div>
+        </div>
+        <section  id="allDataSection" class="grid grid-cols-4 max-w-7xl m-auto mt-8 p-4 gap-3 ">
+            <!-- <div class="bg-white shadow-lg p-4 rounded-lg">
+                <div class="flex justify-between">
+                    <button class="bg-red-300 text-red-500 px-5 py-1 font-bold rounded-4 uppercase">.fdfjk</button>
+                    <img src="assets/Open-Status.png" alt="">
+                </div>
+                <h2 class="text-xl font-bold">Fix navigation menu on mobile devices</h2>
+                 <p class="text-gray-400 my-2">The navigation menu doesn't collapse properly on mobile devices...</p>
+                <div class="flex gap-2">
+                    <button class="bg-red-200 px-2  text-red-600 rounded-sm">Bug</button>
+                    <button class="bg-yellow-200 px-2 font-bold text-yellow-600 rounded-sm">help wanted</button>
+                </div>
+                <hr class="mt-4 mb-5">
+                <p>#1 by john_doe</p>
+                <p>1/15/2024</p>
+            </div> -->
+        </section>
+        <section id="openContiner" class="grid grid-cols-4 max-w-7xl m-auto mt-8 p-4 gap-3"></section>
+        <section id="closeContiner" class="grid grid-cols-4 max-w-7xl m-auto mt-8 p-4 gap-3"></section>
+    </section>
+    <!-- Open the modal using ID.showModal() method -->
+<button class="btn" onclick="my_modal.showModal()">open modal</button>
+<dialog id="my_modal" class="modal">
+  <div id="modetlbox" class="modal-box">
+   <!-- <div>
+    <h2 class="text-3xl font-bold">Fix broken image uploads</h2>
+    <div class="flex gap-4 mt-4">
+        <div class="bg-green-600 px-3 text-white font-bold py-1 rounded-3xl"><button>Opened</button></div>
+        <div><p>Opened by Fahim Ahmed</p></div>
+        <div>22/02/2026</div>
+    </div>
+    <div class="flex mt-5 gap-4">
+        <div class="bg-red-200 px-4 text-red-500 font-bold py-1 rounded-3xl"><button>Bug</button></div>
+        <div class="bg-yellow-100 px-4 text-yellow-500 font-bold py-1 rounded-3xl"><button>help wanted</button></div>
+    </div>
+    <div class="my-8"><p>The navigation menu doesn't collapse properly on mobile devices. Need to fix the responsive behavior.</p></div>
+    <div class="flex justify-between bg-gray-200 p-4 m-2 rounded-lg shadow-lg">
+        <div >
+            <p>Assignee:</p>
+            <h2 class="font-bold ">Fahim Ahmed</h2>
+        </div>
+        <div class="">
+            <p>Priority:</p>
+            <button class="bg-red-600 px-4 text-white font-bold py-1 rounded-3xl uppercase">High</button>
+        </div>
+    </div>
+   </div> -->
+    
+  </div>
+  <form method="dialog" class="modal-backdrop">
+    <button>close</button>  
+  </form>
+</dialog>
+    <script src="project.js"></script>
 </body>
 </html>
