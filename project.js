@@ -145,7 +145,7 @@ const openModele = ( tatile, stase, open, teime, bag, help, dec) =>{
         </div>
         <div class="">
             <p>Priority:</p>
-            <button class="bg-red-600 px-4 text-white font-bold py-1 rounded-3xl uppercase">${staseg}</button>
+            <button class="bg-red-600 px-4 text-white font-bold py-1 rounded-3xl uppercase">${stase}</button>
         </div>
     </div>
    </div>
