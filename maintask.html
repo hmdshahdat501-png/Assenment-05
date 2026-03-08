@@ -9,18 +9,18 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <header class="container flex justify-between mx-auto mt-5">
+    <header class="container  lg:flex justify-between mx-auto mt-5">
         <div class="flex justify-center items-center gap-1">
             <img class="w-8" src="assets/github-logo.png" alt="">
-            <h2 class="font-bold">GitHub Issues Tracker</h2>
+            <h2 class="font-bold sm: p-4">GitHub Issues Tracker</h2>
         </div>
-        <div class="flex gap-2 ">
+        <div class="flex gap-2 sm: px-4">
             <input class="p-1 rounded-md" type="text" placeholder=" Search issues...">
             <button class="btn btn-primary"><i class="fa-solid fa-magnifying-glass"></i> New Issue</button>
         </div>
     </header>
     <section id="allbtnsection " class="">
-        <div id="btnContiner" class=" max-w-7xl flex container gap-3 mx-auto mt-8 bg-white shadow-xl p-8 rounded-lg">
+        <div id="btnContiner" class=" max-w-7xl flex container gap-3 mx-auto mt-8 bg-white shadow-xl p-8 rounded-lg sm: justify-center">
             <button id="allbtn" onclick="allbtnDisply()" class="btn btn-active btn-primary">All</button>
             <button id="openbtn" onclick="openbtndisply()" class="btn btn-outline btn-primary">Open</button>
             <button id="closebtn" onclick="closeDisply()" class="btn btn-outline btn-primary">Closed</button>
@@ -35,7 +35,7 @@
                 
             </div>
         </div>
-        <section  id="allDataSection" class="grid grid-cols-4 max-w-7xl m-auto mt-8 p-4 gap-3 ">
+        <section  id="allDataSection" class="grid grid-cols-4 sm:grid-cols-1 max-w-7xl m-auto mt-8 p-4 gap-3 ">
             <!-- <div class="bg-white shadow-lg p-4 rounded-lg">
                 <div class="flex justify-between">
                     <button class="bg-red-300 text-red-500 px-5 py-1 font-bold rounded-4 uppercase">.fdfjk</button>
@@ -52,8 +52,8 @@
                 <p>1/15/2024</p>
             </div> -->
         </section>
-        <section id="openContiner" class="grid grid-cols-4 max-w-7xl m-auto mt-8 p-4 gap-3"></section>
-        <section id="closeContiner" class="grid grid-cols-4 max-w-7xl m-auto mt-8 p-4 gap-3"></section>
+        <section id="openContiner" class="grid sm:grid-cols-1 lg:grid-cols-4  max-w-7xl m-auto mt-8 p-4 gap-3"></section>
+        <section id="closeContiner" class="grid sm:grid-cols-1 lg:grid-cols-4   max-w-7xl m-auto mt-8 p-4 gap-3"></section>
     </section>
     <!-- Open the modal using ID.showModal() method -->
 <dialog id="my_modal" class="modal">
