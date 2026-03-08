@@ -50,14 +50,16 @@ priorityBtn.classList.remove('text-red')
 }
 
         if(ddata.status === 'open'){
-         openbtnSection.append(div.cloneNode(true))
+         
          card.classList.add('border-t-5', 'border-green-500')
           btnimge.innerHTML = `<img src="assets/Open-Status.png" alt="">`
+          openbtnSection.append(div.cloneNode(true))
       }
       if(ddata.status === 'closed'){
-       closebtnSection.append(div.cloneNode(true))
+      
        card.classList.add('border-t-5', 'border-blue-500')
         btnimge.innerHTML = ` <img src="assets/Closed- Status .png" alt="">`
+         closebtnSection.append(div.cloneNode(true))
       }
       
        allissuSection.append(div)
@@ -209,6 +211,7 @@ const moderle = (idt) =>{
    if(idt.priority === 'low'){
     puirytu.classList.add('bg-green-600')
    }
+   
 }
 const searchIssue = () => {
 
@@ -266,9 +269,16 @@ priorityBtn.classList.add('bg-green-200','text-black')
 priorityBtn.classList.remove('text-red')
 
 }
+if(shwdatat.status === 'open'){
+ card.classList.add('border-t-5', 'border-green-500')
+          btnimge.innerHTML = `<img src="assets/Open-Status.png" alt="">`
+}
+if(shwdatat.status === 'closed'){
+      
+       card.classList.add('border-t-5', 'border-blue-500')
+        btnimge.innerHTML = ` <img src="assets/Closed- Status .png" alt="">`
+      }
              allissuSection.append(divtr)
              
-    }
-    
-     
+    }  
 }
