@@ -14,8 +14,8 @@
             <img class="w-8" src="assets/github-logo.png" alt="">
             <h2 class="font-bold sm: p-4">GitHub Issues Tracker</h2>
         </div>
-        <div class="flex gap-2 sm: px-4">
-            <input id="searchInput"  class="p-1 rounded-md" type="text" placeholder=" Search issues...">
+        <div class="flex gap-2 sm: px-4 justify-center mt-6">
+            <input id="searchInput"  class="p-1 rounded-md " type="text" placeholder=" Search issues...">
             <button onclick="searchIssue()" class="btn btn-primary"><i class="fa-solid fa-magnifying-glass"></i> New Issue</button>
         </div>
     </header>
@@ -35,7 +35,7 @@
                 
             </div>
         </div>
-        <section  id="allDataSection" class="grid grid-cols-4 sm:grid-cols-1 max-w-7xl m-auto mt-8 p-4 gap-3 ">
+        <section  id="allDataSection" class="grid lg:grid-cols-4 sm:grid-cols-1 max-w-7xl m-auto mt-8 p-4 gap-3 ">
             <!-- <div class="bg-white shadow-lg p-4 rounded-lg">
                 <div class="flex justify-between">
                     <button class="bg-red-300 text-red-500 px-5 py-1 font-bold rounded-4 uppercase">.fdfjk</button>
@@ -53,8 +53,8 @@
             </div> -->
         </section>
        
-        <section id="openContiner" class="grid sm:grid-cols-1 lg:grid-cols-4  max-w-7xl m-auto mt-8 p-4 gap-3"></section>
-        <section id="closeContiner" class="grid sm:grid-cols-1 lg:grid-cols-4   max-w-7xl m-auto mt-8 p-4 gap-3"></section>
+        <section id="openContiner" class=" hidden grid sm:grid-cols-1 lg:grid-cols-4  max-w-7xl m-auto mt-8 p-4 gap-3"></section>
+        <section id="closeContiner" class=" hidden grid sm:grid-cols-1 lg:grid-cols-4   max-w-7xl m-auto mt-8 p-4 gap-3"></section>
     </section>
     <!-- Open the modal using ID.showModal() method -->
 <dialog id="my_modal" class="modal">

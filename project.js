@@ -24,7 +24,7 @@ const displydata = (indata)=>{
                  <p class="text-gray-400 my-2 line-clamp-2">${ddata.description}</p>
                 <div class="flex gap-2">
                     <button class="bg-red-200 px-2  text-red-600 rounded-sm uppercase">${ddata.labels[0]}</button>
-                    <button class="bg-yellow-200 px-2 font-bold text-yellow-600 rounded-sm uppercase">${ddata.labels[1]}</button>
+                    <button class="bg-yellow-200 px-2  text-yellow-600 rounded-sm uppercase">${ddata.labels[1] ? ddata.labels[1]: "No Need Data"}</button>
                 </div>
                 <hr class="mt-4 mb-5">
                 <p>${ddata.assignee}</p>
@@ -49,25 +49,21 @@ priorityBtn.classList.remove('text-red')
 
 }
 
-
-       allissuSection.append(div)
-           
-
-      if(ddata.status === 'open'){
-         openbtnSection.append(div)
+        if(ddata.status === 'open'){
+         openbtnSection.append(div.cloneNode(true))
          card.classList.add('border-t-5', 'border-green-500')
           btnimge.innerHTML = `<img src="assets/Open-Status.png" alt="">`
       }
       if(ddata.status === 'closed'){
-       closebtnSection.append(div)
+       closebtnSection.append(div.cloneNode(true))
        card.classList.add('border-t-5', 'border-blue-500')
         btnimge.innerHTML = ` <img src="assets/Closed- Status .png" alt="">`
       }
       
+       allissuSection.append(div)
       
     }
-   
-     
+  
 }
  
  const allbunt = document.getElementById('allbtn')
@@ -82,20 +78,23 @@ priorityBtn.classList.remove('text-red')
     opentbten.classList.remove('btn-active')
     closebten.classList.remove('btn-active')
      allbunt.classList.add('btn-primary')
-      openbtnSection.classList.remove('hidden')
-       closebtnSection.classList.remove('hidden')
+      openbtnSection.classList.add('hidden')
+       closebtnSection.classList.add('hidden')
        conutProblem.innerText = '50'
        allissuSection.classList.remove('hidden')
  }
 const openbtndisply = () =>{
    
    opentbten.classList.add('btn-active')
-   closebtnSection.classList.add('hidden')
+//    closebtnSection.classList.add('hidden')
     openbtnSection.classList.remove('hidden')
     closebten.classList.remove('btn-active')
    allbunt.classList.remove('btn-primary')
    allissuSection.classList.add('hidden')
      conutProblem.innerText = '44'
+      if(ddata.status === 'closed'){
+           ddata.div.classList.add('hidden')
+        }
 }
 const closeDisply = () =>{
     openbtnSection.classList.add('hidden')
@@ -106,6 +105,7 @@ const closeDisply = () =>{
      allbunt.classList.remove('btn-primary')
      allissuSection.classList.add('hidden')
      conutProblem.innerText = '6'
+    
 }
  
 // const openModele = ( tatile, stase, open, teime, bag, help, dec) =>{
@@ -266,7 +266,9 @@ priorityBtn.classList.add('bg-green-200','text-black')
 priorityBtn.classList.remove('text-red')
 
 }
-             closebtnSection.append(divtr)
+             allissuSection.append(divtr)
              
     }
+    
+     
 }
