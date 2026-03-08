@@ -1,24 +1,4 @@
-// const allbtn = document.getElementById('allbtn')
 
-
-// const btnClick = () =>{
-//     allbtn.classList.remove('btn-active')
-    
-// }
-// const apibtn = [
-//     {id: 2, name: 'Open', status: "open"},
-//     {id: 3, name: 'Closed', status: "closed"}
-// ]
-// const btncontiner = document.getElementById('btnContiner')
-// for(let btns of apibtn){
-//    const btnDiv = document.createElement('div')
-//     btnDiv.innerHTML = ` <button Onclick = "buntissue(${btns.status})" class="btn btn-outline btn-primary">${btns.name}</button>`
-//     btncontiner.append(btnDiv)
-// }
-// const buntissue = (issue) =>{
-//  const url = `https://phi-lab-server.vercel.app/api/v1/lab/${issue}`
-//  fetch(url)
-// }
 const modele = document.getElementById('my_modal')
 const higbnt = document.getElementById('hibtn')
  const allissuSection = document.getElementById('allDataSection')
@@ -34,10 +14,11 @@ const displydata = (indata)=>{
     
     for(let ddata of indata){
        const div = document.createElement('div')
-       div.innerHTML = `<div  class="macrad bg-white shadow-lg p-4 rounded-lg h-ful border-">
-                <div onclick="openModele('${ddata.title}','${ddata.status}', '${ddata.assignee}', '${ddata.createdAt}' , '${ddata.labels[0]}', '${ddata.labels[1]}', '${ddata.description}')" class="flex justify-between">
+       div.innerHTML = `<div onclick="mrderl('${ddata.id}')" class="macrad bg-white shadow-lg p-4 rounded-lg h-ful border-">
+                <div class="flex justify-between">
                     <button id = 'hibtn' class=" priorityBtn px-5 py-1 font-bold rounded-4xl uppercase">${ddata.priority}</button>
-                    <img src="assets/Open-Status.png" alt="">
+                    
+                    <div class = "btnimge"> </div>
                 </div>
                 <h2 class="text-xl font-bold ">${ddata.title}</h2>
                  <p class="text-gray-400 my-2 line-clamp-2">${ddata.description}</p>
@@ -51,7 +32,7 @@ const displydata = (indata)=>{
             </div>`
  const priorityBtn = div.querySelector('.priorityBtn')
  const card = div.querySelector('.macrad')
-
+ const btnimge = div.querySelector('.btnimge')
 if(ddata.priority === 'high'){
 priorityBtn.classList.add('bg-red-50','text-red-600')
 
@@ -75,10 +56,12 @@ priorityBtn.classList.remove('text-red')
       if(ddata.status === 'open'){
          openbtnSection.append(div)
          card.classList.add('border-t-5', 'border-green-500')
+          btnimge.innerHTML = `<img src="assets/Open-Status.png" alt="">`
       }
       if(ddata.status === 'closed'){
        closebtnSection.append(div)
        card.classList.add('border-t-5', 'border-blue-500')
+        btnimge.innerHTML = ` <img src="assets/Closed- Status .png" alt="">`
       }
       
       
@@ -125,51 +108,165 @@ const closeDisply = () =>{
      conutProblem.innerText = '6'
 }
  
-const openModele = ( tatile, stase, open, teime, bag, help, dec) =>{
+// const openModele = ( tatile, stase, open, teime, bag, help, dec) =>{
    
-    modele.showModal()
+//     modele.showModal()
 
-    const modeldiv = document.getElementById('modetlbox')
-    //  console.log(stase, open, teime, bag, help, dec );
-    modeldiv.innerHTML = ` <div> 
-    <h2 class="text-3xl font-bold">${tatile}
+//     const modeldiv = document.getElementById('modetlbox')
+//     //  console.log(stase, open, teime, bag, help, dec );
+//     modeldiv.innerHTML = ` <div> 
+//     <h2 class="text-3xl font-bold">${tatile}
+//     </h2>
+//     <div class="flex gap-4 mt-4">
+//         <div class="stasebtn  px-3 text-white font-bold py-1 rounded-3xl"><button>${stase}</button></div>
+//         <div><p>${open}</p></div>
+//         <div>${teime}</div>
+//     </div>
+//     <div class="flex mt-5 gap-4">
+//         <div class="bg-red-200 px-4 text-red-500 font-bold py-1 rounded-3xl"><button>${bag}</button></div>
+//         <div class="bg-yellow-100 px-4 text-yellow-500 font-bold py-1 rounded-3xl"><button>${help}</button></div>
+//     </div>
+//     <div class="my-8"><p>${dec}</p></div>
+//     <div class="flex justify-between bg-gray-200 p-4 m-2 rounded-lg shadow-lg">
+//         <div >
+//             <p>Assignee:</p>
+//             <h2 class="font-bold ">${open}</h2>
+//         </div>
+//         <div class="">
+//             <p>Priority:</p>
+//             <button class="downstase  px-4 text-white font-bold py-1 rounded-3xl uppercase">${stase}</button>
+//         </div>
+//     </div>
+//    </div>
+//     `
+//      const stae = modeldiv.querySelector('.stasebtn')
+//      if(stase === 'open'){
+    //     stae.classList.add('bg-green-600')
+    //  }
+    //  else{
+    //     stae.classList.add('bg-red-600')  
+    //  }
+
+//      const dowmster = modeldiv.querySelector('.downstase')
+//      if(stase === 'open'){
+//         dowmster.classList.add('bg-green-600')
+//      }
+//      else{
+//         dowmster.classList.add('bg-red-600')  
+//      }
+// }
+
+const mrderl = (id) =>{
+    const url = `https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`
+fetch(url)
+.then((revs)=> revs.json())
+.then((atdat)=> moderle(atdat.data))
+
+}
+const modeldiv = document.getElementById('modetlbox')
+const moderle = (idt) =>{
+ modele.showModal()
+ const modeldiv = document.getElementById('modetlbox')
+ modeldiv.innerHTML = `<div> 
+    <h2 class="text-3xl font-bold ">${idt.title}
     </h2>
     <div class="flex gap-4 mt-4">
-        <div class="stasebtn  px-3 text-white font-bold py-1 rounded-3xl"><button>${stase}</button></div>
-        <div><p>${open}</p></div>
-        <div>${teime}</div>
+        <div class="stasebtn  px-3 text-white font-bold py-1 rounded-3xl "><button class ='uppercase'>${idt.status}</button></div>
+        <div><p>${idt.assignee}</p></div>
+        <div>${idt.createdAt}</div>
     </div>
     <div class="flex mt-5 gap-4">
-        <div class="bg-red-200 px-4 text-red-500 font-bold py-1 rounded-3xl"><button>${bag}</button></div>
-        <div class="bg-yellow-100 px-4 text-yellow-500 font-bold py-1 rounded-3xl"><button>${help}</button></div>
+        <div class="bg-red-200 px-4 text-red-500 font-bold py-1 rounded-3xl"><button>${idt.labels[0]}</button></div>
+        <div class="bg-yellow-100 px-4 text-yellow-500 font-bold py-1 rounded-3xl"><button>${idt.labels[1]}</button></div>
     </div>
-    <div class="my-8"><p>${dec}</p></div>
+    <div class="my-8"><p>${idt.description}</p></div>
     <div class="flex justify-between bg-gray-200 p-4 m-2 rounded-lg shadow-lg">
         <div >
             <p>Assignee:</p>
-            <h2 class="font-bold ">${open}</h2>
+            <h2 class="font-bold ">${idt.assignee}</h2>
         </div>
         <div class="">
             <p>Priority:</p>
-            <button class="downstase  px-4 text-white font-bold py-1 rounded-3xl uppercase">${stase}</button>
+            <button class="downstase  px-4 text-white font-bold py-1 rounded-3xl uppercase">${idt.priority}</button>
         </div>
     </div>
-   </div>
-    `
-     const stae = modeldiv.querySelector('.stasebtn')
-     if(stase === 'open'){
-        stae.classList.add('bg-green-600')
-     }
-     else{
-        stae.classList.add('bg-red-600')  
-     }
+   </div>`
 
-     const dowmster = modeldiv.querySelector('.downstase')
-     if(stase === 'open'){
-        dowmster.classList.add('bg-green-600')
+   const statesbtn = document.querySelector('.stasebtn')
+   const puirytu = document.querySelector('.downstase')
+   if(idt.status === 'open'){
+        statesbtn.classList.add('bg-green-600')
      }
      else{
-        dowmster.classList.add('bg-red-600')  
+        statesbtn.classList.add('bg-red-600')  
      }
+   if(idt.priority === 'high'){
+    puirytu.classList.add('bg-red-600')
+   }
+   if(idt.priority === 'medium'){
+    puirytu.classList.add('bg-yellow-600')
+   }
+   if(idt.priority === 'low'){
+    puirytu.classList.add('bg-green-600')
+   }
+}
+const searchIssue = () => {
+
+ const value = document.getElementById('searchInput').value
+
+ const url = `https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${value}`
+
+ fetch(url)
+ .then(res => res.json())
+ .then(data => {
+     const openbtnSection = document.getElementById('openContiner')
+    const closebtnSection = document.getElementById('closeContiner')
+    const section = document.getElementById("allDataSection")
+    section.innerHTML = ""
+    openbtnSection.innerHTML= ''
+    closebtnSection.innerHTML = ''
+   displayScerchdat(data.data)
+ })
+}
+const displayScerchdat = (disdata) =>{
+    for(let shwdatat of disdata){
+       const closebtnSection = document.getElementById('closeContiner')
+       const divtr = document.createElement('div')
+        divtr.innerHTML = `<div onclick="mrderl('${shwdatat.id}')" class="macrad bg-white shadow-lg p-4 rounded-lg h-ful border-">
+                <div class="flex justify-between">
+                    <button id = 'hibtn' class=" priorityBtn px-5 py-1 font-bold rounded-4xl uppercase">${shwdatat.priority}</button>
+                    
+                    <div class = "btnimge"> </div>
+                </div>
+                <h2 class="text-xl font-bold ">${shwdatat.title}</h2>
+                 <p class="text-gray-400 my-2 line-clamp-2">${shwdatat.description}</p>
+                <div class="flex gap-2">
+                    <button class="bg-red-200 px-2  text-red-600 rounded-sm uppercase">${shwdatat.labels[0]}</button>
+                    <button class="bg-yellow-200 px-2 font-bold text-yellow-600 rounded-sm uppercase">${shwdatat.labels[1]}</button>
+                </div>
+                <hr class="mt-4 mb-5">
+                <p>${shwdatat.assignee}</p>
+                <p>${shwdatat.createdAt}</p>
+            </div>`
+const priorityBtn = divtr.querySelector('.priorityBtn')
+ const card = divtr.querySelector('.macrad')
+ const btnimge = divtr.querySelector('.btnimge')
+if(shwdatat.priority === 'high'){
+priorityBtn.classList.add('bg-red-50','text-red-600')
+
 }
 
+if(shwdatat.priority === 'medium'){
+priorityBtn.classList.add('bg-yellow-200','text-yellow-600')
+
+}
+
+if(shwdatat.priority === 'low'){
+priorityBtn.classList.add('bg-green-200','text-black')
+priorityBtn.classList.remove('text-red')
+
+}
+             closebtnSection.append(divtr)
+             
+    }
+}
