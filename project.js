@@ -34,7 +34,7 @@ const displydata = (indata)=>{
     
     for(let ddata of indata){
        const div = document.createElement('div')
-       div.innerHTML = `<div  class="bg-white shadow-lg p-4 rounded-lg h-full">
+       div.innerHTML = `<div  class="macrad bg-white shadow-lg p-4 rounded-lg h-ful border-">
                 <div onclick="openModele('${ddata.title}','${ddata.status}', '${ddata.assignee}', '${ddata.createdAt}' , '${ddata.labels[0]}', '${ddata.labels[1]}', '${ddata.description}')" class="flex justify-between">
                     <button id = 'hibtn' class=" priorityBtn px-5 py-1 font-bold rounded-4xl uppercase">${ddata.priority}</button>
                     <img src="assets/Open-Status.png" alt="">
@@ -49,14 +49,17 @@ const displydata = (indata)=>{
                 <p>${ddata.assignee}</p>
                 <p>${ddata.createdAt}</p>
             </div>`
-            const priorityBtn = div.querySelector('.priorityBtn')
+ const priorityBtn = div.querySelector('.priorityBtn')
+ const card = div.querySelector('.macrad')
 
 if(ddata.priority === 'high'){
 priorityBtn.classList.add('bg-red-50','text-red-600')
+
 }
 
 if(ddata.priority === 'medium'){
 priorityBtn.classList.add('bg-yellow-200','text-yellow-600')
+
 }
 
 if(ddata.priority === 'low'){
@@ -65,14 +68,17 @@ priorityBtn.classList.remove('text-red')
 
 }
 
-allissuSection.append(div)
-            allissuSection.append(div)
+
+       allissuSection.append(div)
+           
 
       if(ddata.status === 'open'){
          openbtnSection.append(div)
+         card.classList.add('border-t-5', 'border-green-500')
       }
       if(ddata.status === 'closed'){
        closebtnSection.append(div)
+       card.classList.add('border-t-5', 'border-blue-500')
       }
       
       
@@ -129,7 +135,7 @@ const openModele = ( tatile, stase, open, teime, bag, help, dec) =>{
     <h2 class="text-3xl font-bold">${tatile}
     </h2>
     <div class="flex gap-4 mt-4">
-        <div class="bg-green-600 px-3 text-white font-bold py-1 rounded-3xl"><button>${stase}</button></div>
+        <div class="stasebtn  px-3 text-white font-bold py-1 rounded-3xl"><button>${stase}</button></div>
         <div><p>${open}</p></div>
         <div>${teime}</div>
     </div>
@@ -145,11 +151,25 @@ const openModele = ( tatile, stase, open, teime, bag, help, dec) =>{
         </div>
         <div class="">
             <p>Priority:</p>
-            <button class="bg-red-600 px-4 text-white font-bold py-1 rounded-3xl uppercase">${stase}</button>
+            <button class="downstase  px-4 text-white font-bold py-1 rounded-3xl uppercase">${stase}</button>
         </div>
     </div>
    </div>
     `
-    
+     const stae = modeldiv.querySelector('.stasebtn')
+     if(stase === 'open'){
+        stae.classList.add('bg-green-600')
+     }
+     else{
+        stae.classList.add('bg-red-600')  
+     }
+
+     const dowmster = modeldiv.querySelector('.downstase')
+     if(stase === 'open'){
+        dowmster.classList.add('bg-green-600')
+     }
+     else{
+        dowmster.classList.add('bg-red-600')  
+     }
 }
 
