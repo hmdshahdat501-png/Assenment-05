@@ -179,7 +179,7 @@ const moderle = (idt) =>{
     </div>
     <div class="flex mt-5 gap-4">
         <div class="bg-red-200 px-4 text-red-500 font-bold py-1 rounded-3xl"><button>${idt.labels[0]}</button></div>
-        <div class="bg-yellow-100 px-4 text-yellow-500 font-bold py-1 rounded-3xl"><button>${idt.labels[1]}</button></div>
+        <div class="bg-yellow-100 px-4 text-yellow-500 font-bold py-1 rounded-3xl"><button>${ddata.labels[1] ? ddata.labels[1]: "No Need Data"}</button></div>
     </div>
     <div class="my-8"><p>${idt.description}</p></div>
     <div class="flex justify-between bg-gray-200 p-4 m-2 rounded-lg shadow-lg">
