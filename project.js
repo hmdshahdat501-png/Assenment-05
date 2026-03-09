@@ -23,13 +23,16 @@ const displydata = (indata)=>{
                 <h2 class="text-xl font-bold ">${ddata.title}</h2>
                  <p class="text-gray-400 my-2 line-clamp-2">${ddata.description}</p>
                 <div class="flex gap-2">
-                    <button class="bg-red-200 px-2  text-red-600 rounded-sm uppercase">${ddata.labels[0]}</button>
-                    <button class="bg-yellow-200 px-2  text-yellow-600 rounded-sm uppercase">${ddata.labels[1] ? ddata.labels[1]: "No Need Data"}</button>
+                    <button class=" bg-red-200 px-2  text-red-600 rounded-sm uppercase">${ddata.labels[0]}</button>
+                    <button class=" tlabesbtn bg-yellow-200 px-2  text-yellow-600 rounded-sm uppercase">${ddata.labels[1] ? ddata.labels[1]: "No Need Data"}</button>
                 </div>
                 <hr class="mt-4 mb-5">
                 <p>${ddata.assignee}</p>
                 <p>${ddata.createdAt}</p>
             </div>`
+
+
+
  const priorityBtn = div.querySelector('.priorityBtn')
  const card = div.querySelector('.macrad')
  const btnimge = div.querySelector('.btnimge')
@@ -48,7 +51,7 @@ priorityBtn.classList.add('bg-green-200','text-black')
 priorityBtn.classList.remove('text-red')
 
 }
-
+const labesbtnt = document.querySelector('.tlabesbtn')
         if(ddata.status === 'open'){
          
          card.classList.add('border-t-5', 'border-green-500')
@@ -65,6 +68,7 @@ priorityBtn.classList.remove('text-red')
        allissuSection.append(div)
       
     }
+    
   
 }
  
@@ -173,13 +177,13 @@ const moderle = (idt) =>{
     <h2 class="text-3xl font-bold ">${idt.title}
     </h2>
     <div class="flex gap-4 mt-4">
-        <div class="stasebtn  px-3 text-white font-bold py-1 rounded-3xl "><button class ='uppercase'>${idt.status}</button></div>
+        <div class="stasebtn  px-3 text-white font-bold py-1 rounded-3xl "><button class= 'uppercase'>${idt.status}</button></div>
         <div><p>${idt.assignee}</p></div>
         <div>${idt.createdAt}</div>
     </div>
     <div class="flex mt-5 gap-4">
-        <div class="bg-red-200 px-4 text-red-500 font-bold py-1 rounded-3xl"><button>${idt.labels[0]}</button></div>
-        <div class="bg-yellow-100 px-4 text-yellow-500 font-bold py-1 rounded-3xl"><button>${ddata.labels[1] ? ddata.labels[1]: "No Need Data"}</button></div>
+        <div class=" lebelbtn bg-red-200 px-4 text-red-500 font-bold py-1 rounded-3xl"><button class= 'uppercase'>${idt.labels[0]}</button></div>
+        <div class=" nofontdat bg-yellow-100 px-4 text-yellow-500 font-bold py-1 rounded-3xl "><button class= 'uppercase'>${idt.labels[1] ? idt.labels[1]: "No Need Data"}</button></div>
     </div>
     <div class="my-8"><p>${idt.description}</p></div>
     <div class="flex justify-between bg-gray-200 p-4 m-2 rounded-lg shadow-lg">
@@ -193,9 +197,11 @@ const moderle = (idt) =>{
         </div>
     </div>
    </div>`
-
+    const nodatbtn = document.querySelector('.nofontdat')
    const statesbtn = document.querySelector('.stasebtn')
    const puirytu = document.querySelector('.downstase')
+   const labelbtn = document.querySelector('.lebelbtn')
+ 
    if(idt.status === 'open'){
         statesbtn.classList.add('bg-green-600')
      }
@@ -210,6 +216,11 @@ const moderle = (idt) =>{
    }
    if(idt.priority === 'low'){
     puirytu.classList.add('bg-green-600')
+   }
+     if(!idt.labels[1]){
+    nodatbtn.classList.add('hidden')
+    labelbtn.classList.add('bg-green-100','text-green-500')
+    labelbtn.classList.remove('bg-red-200', 'text-red-500')
    }
    
 }
