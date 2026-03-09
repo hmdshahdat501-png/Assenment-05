@@ -45,3 +45,42 @@ Copying data – It creates a shallow copy of arrays or objects.
 Merging arrays or objects – It combines multiple arrays or objects into one.
 
 Function arguments – It passes elements of an array as separate arguments to a function.
+
+3. The map(), filter(), and forEach() methods are used to work with arrays in JavaScript, but they have different purposes.
+
+map() :
+Used to transform each element of an array.
+
+It returns a new array with the modified values.
+
+The length of the new array is the same as the original array.
+
+filter() ;
+Used to select elements based on a condition.
+
+It returns a new array containing only the elements that satisfy the condition.
+
+The new array may be smaller than the original array.
+forEach() ;
+Used to execute a function for each element of an array.
+
+It does not return a new array.
+
+It is mainly used for performing actions like printing values or updating something.
+
+
+4. An arrow function is a shorter and more modern way to write functions in JavaScript
+Arrow functions use the => (arrow) syntax to define a function. They provide a more concise and readable way to write functions compared to traditional function expressions.
+
+They use a shorter syntax.
+
+They do not have their own this value; instead, they inherit this from the surrounding (lexical) scope.
+
+They are commonly used for callbacks and simple functions.
+
+They cannot be used as constructors and cannot be called with new.
+
+5. emplate literals are a feature in JavaScript introduced in ES6 that allow you to create strings more easily and dynamically.
+Allow string interpolation, meaning you can embed variables or expressions inside a string using ${ }.
+
+Support multi-line strings without using special characters like.

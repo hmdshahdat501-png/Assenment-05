@@ -206,7 +206,7 @@ const moderle = (idt) =>{
         statesbtn.classList.add('bg-green-600')
      }
      else{
-        statesbtn.classList.add('bg-red-600')  
+        statesbtn.classList.add('bg-blue-600')  
      }
    if(idt.priority === 'high'){
     puirytu.classList.add('bg-red-600')
